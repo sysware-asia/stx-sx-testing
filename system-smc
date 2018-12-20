@@ -94,3 +94,23 @@ controller-0:~$ lspci |grep Eth*
 07:00.0 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
 07:00.1 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
 controller-0:~$
+
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-disk-list controller-0
++--------------------------------------+-------------+------------+-------------+----------+---------------+------+--------------------+-----------------------------------------------------------------+
+| uuid                                 | device_node | device_num | device_type | size_gib | available_gib | rpm  | serial_id          | device_path                                                     |
++--------------------------------------+-------------+------------+-------------+----------+---------------+------+--------------------+-----------------------------------------------------------------+
+| 6ee0b31e-a709-403b-abcc-c74bc79e187f | /dev/sda    | 2048       | SSD         | 372.611  | 2.588         | N/A  | BTTV3154026X400HGN | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221100000000-lun-0 |
+| 78baae0a-e234-43df-a582-449ae8b8bebb | /dev/sdb    | 2064       | HDD         | 931.512  | 1.51          | 7200 | 9XG491L1           | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221101000000-lun-0 |
+| cefa6b37-4370-4390-aeab-4c704a0a2879 | /dev/sdc    | 2080       | HDD         | 931.512  | 1.51          | 7200 | 9XG4JSEP           | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221102000000-lun-0 |
+| 22567d57-2ddc-4675-a44c-b7edfbd8ee6d | /dev/sdd    | 2096       | HDD         | 931.512  | 931.51        | 7200 | 9XG48N75           | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221103000000-lun-0 |
++--------------------------------------+-------------+------------+-------------+----------+---------------+------+--------------------+-----------------------------------------------------------------+
+[wrsroot@controller-0 ~(keystone_admin)]$ nova service-list
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+| Id                                   | Binary           | Host         | Zone     | Status  | State | Updated_at                 | Disabled Reason | Forced down |
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+| 9c097ea9-670a-4818-a344-c7fc938dac48 | nova-consoleauth | controller-0 | internal | enabled | up    | 2018-12-20T15:12:48.415082 | -               | False       |
+| 7564daa5-ab10-4e59-95f5-e01077fb488d | nova-scheduler   | controller-0 | internal | enabled | up    | 2018-12-20T15:12:49.670763 | -               | False       |
+| 1ef7ef11-7497-407c-a842-56379f7565e9 | nova-compute     | controller-0 | nova     | enabled | up    | 2018-12-20T15:12:51.958422 | -               | False       |
+| 430c7891-20c9-4f8c-bc04-0d7fc9bd9b42 | nova-conductor   | controller-0 | internal | enabled | up    | 2018-12-20T15:12:54.411811 | -               | False       |
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
