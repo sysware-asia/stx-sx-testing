@@ -1,3 +1,178 @@
-sfdsdsfsf
-dsfdsfs
-sfdsfsdfsfd
+This StarlingX- SX is FAILED COMPUTE
+CPU=  2 x CPU Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz /16 Core
+RAM= 64 GB
+Storage: 1x SSD (400GB), 3x HDD 1TB (7200)
+RAIDCard (): NO
+NIC:  4 x1GE (BCM5719), 2 x 10GE(BCM57810) --not supported DPDK
+
+
+controller-0:~$ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                64
+On-line CPU(s) list:   0-63
+Thread(s) per core:    2
+Core(s) per socket:    16
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 85
+Model name:            Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+Stepping:              4
+CPU MHz:               2100.000
+BogoMIPS:              4200.00
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              1024K
+L3 cache:              22528K
+NUMA node0 CPU(s):     0-15,32-47
+NUMA node1 CPU(s):     16-31,48-63
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb cat_l3 cdp_l3 intel_ppin intel_pt mba ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke spec_ctrl intel_stibp
+controller-0:~$
+controller-0:~$ cat /proc/meminfo
+MemTotal:       65509392 kB
+MemFree:        13387120 kB
+MemAvailable:   14328404 kB
+Buffers:          458804 kB
+Cached:           979708 kB
+SwapCached:            0 kB
+Active:          7128448 kB
+Inactive:         590900 kB
+Active(anon):    6327272 kB
+Inactive(anon):    40436 kB
+Active(file):     801176 kB
+Inactive(file):   550464 kB
+Unevictable:      110444 kB
+Mlocked:          110444 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                92 kB
+Writeback:             0 kB
+AnonPages:       6392328 kB
+Mapped:           125900 kB
+Shmem:             69284 kB
+Slab:             336684 kB
+SReclaimable:     165184 kB
+SUnreclaim:       171500 kB
+KernelStack:       23440 kB
+PageTables:        87152 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    11146248 kB
+Committed_AS:   15705568 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      400636 kB
+VmallocChunk:   34324885500 kB
+HardwareCorrupted:     0 kB
+CmaTotal:          16384 kB
+CmaFree:            6340 kB
+HugePages_Total:   20078
+HugePages_Free:    20078
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       24160 kB
+DirectMap2M:     3811328 kB
+DirectMap1G:    62914560 kB
+controller-0:~$
+
+controller-0:~$ lspci |grep Eth*
+02:00.0 Ethernet controller: Broadcom Limited NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+02:00.1 Ethernet controller: Broadcom Limited NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+02:00.2 Ethernet controller: Broadcom Limited NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+02:00.3 Ethernet controller: Broadcom Limited NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+12:00.0 Ethernet controller: Broadcom Limited NetXtreme II BCM57810 10 Gigabit Ethernet (rev 10)
+12:00.1 Ethernet controller: Broadcom Limited NetXtreme II BCM57810 10 Gigabit Ethernet (rev 10)
+
+
+
+[wrsroot@controller-0 ~(keystone_admin)]$ system show
++----------------------+--------------------------------------+
+| Property             | Value                                |
++----------------------+--------------------------------------+
+| contact              | None                                 |
+| created_at           | 2018-12-18T00:42:55.096884+00:00     |
+| description          | None                                 |
+| https_enabled        | False                                |
+| location             | None                                 |
+| name                 | d4af89d5-de79-4264-9131-28d384aa4982 |
+| region_name          | RegionOne                            |
+| sdn_enabled          | False                                |
+| security_feature     | spectre_meltdown_v1                  |
+| service_project_name | services                             |
+| software_version     | 18.10                                |
+| system_mode          | simplex                              |
+| system_type          | All-in-one                           |
+| timezone             | Asia/Bangkok                         |
+| updated_at           | 2018-12-18T00:43:28.405642+00:00     |
+| uuid                 | ba6cd1b3-8ea5-4470-a4e2-328d4f83bc8e |
+| vswitch_type         | ovs-dpdk                             |
++----------------------+--------------------------------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-show controller-0
++---------------------+----------------------------------------------------------------+
+| Property            | Value                                                          |
++---------------------+----------------------------------------------------------------+
+| action              | none                                                           |
+| administrative      | unlocked                                                       |
+| availability        | degraded                                                       |
+| bm_ip               | None                                                           |
+| bm_type             | None                                                           |
+| bm_username         | None                                                           |
+| boot_device         | /dev/disk/by-path/pci-0000:5c:00.0-scsi-0:1:0:0                |
+| capabilities        | {u'Personality': u'Controller-Active'}                         |
+| config_applied      | 51ec4124-f3c5-44c3-8f1f-80bc3d88cc73                           |
+| config_status       | None                                                           |
+| config_target       | 51ec4124-f3c5-44c3-8f1f-80bc3d88cc73                           |
+| console             | tty0                                                           |
+| created_at          | 2018-12-18T00:43:30.340338+00:00                               |
+| hostname            | controller-0                                                   |
+| id                  | 1                                                              |
+| install_output      | text                                                           |
+| install_state       | None                                                           |
+| install_state_info  | None                                                           |
+| invprovision        | provisioned                                                    |
+| location            | {}                                                             |
+| mgmt_ip             | 192.168.206.195                                                |
+| mgmt_mac            | 00:00:00:00:00:00                                              |
+| operational         | enabled                                                        |
+| personality         | controller                                                     |
+| reserved            | False                                                          |
+| rootfs_device       | /dev/disk/by-path/pci-0000:5c:00.0-scsi-0:1:0:0                |
+| serialid            | None                                                           |
+| software_load       | 18.10                                                          |
+| subfunction_avail   | failed                                                         |
+| subfunction_oper    | disabled                                                       |
+| subfunctions        | controller,compute                                             |
+| task                | Configuration failure, threshold reached, Lock/Unlock to retry |
+| tboot               | false                                                          |
+| ttys_dcd            | None                                                           |
+| updated_at          | 2018-12-20T23:12:53.816597+00:00                               |
+| uptime              | 130414                                                         |
+| uuid                | a05090d2-c68e-4935-8358-631a66343406                           |
+| vim_progress_status | None                                                           |
++---------------------+----------------------------------------------------------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
+
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-disk-list controller-0
++--------------------------------------+-------------+------------+-------------+----------+---------------+--------------+----------------+-------------------------------------------------+
+| uuid                                 | device_node | device_num | device_type | size_gib | available_gib | rpm          | serial_id      | device_path                                     |
++--------------------------------------+-------------+------------+-------------+----------+---------------+--------------+----------------+-------------------------------------------------+
+| faa92f4b-d490-4891-b3ef-7bca08b13ba0 | /dev/sda    | 2048       | HDD         | 558.879  | 8.565         | Undetermined | PEYHC0CRHB239G | /dev/disk/by-path/pci-0000:5c:00.0-scsi-0:1:0:0 |
+| c1c4babd-f595-47fe-8704-cea80b227c4b | /dev/sdb    | 2064       | HDD         | 558.879  | 8.877         | Undetermined | PEYHC0CRHB239G | /dev/disk/by-path/pci-0000:5c:00.0-scsi-0:1:0:1 |
++--------------------------------------+-------------+------------+-------------+----------+---------------+--------------+----------------+-------------------------------------------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
+[wrsroot@controller-0 ~(keystone_admin)]$  nova service-list
++--------------------------------------+------------------+--------------+----------+----------+-------+----------------------------+-----------------+-------------+
+| Id                                   | Binary           | Host         | Zone     | Status   | State | Updated_at                 | Disabled Reason | Forced down |
++--------------------------------------+------------------+--------------+----------+----------+-------+----------------------------+-----------------+-------------+
+| 1418242a-51b9-4ce1-a951-8f0a1eade8df | nova-compute     | controller-0 | nova     | disabled | down  | 2018-12-18T00:55:32.729126 | disabled by VIM | True        |
+| 476582d3-3bc3-433e-bad9-607efe028887 | nova-consoleauth | controller-0 | internal | enabled  | up    | 2018-12-20T23:18:19.976508 | -               | False       |
+| adbcd1ac-05aa-4f72-acbb-70ef5c7562f7 | nova-conductor   | controller-0 | internal | enabled  | up    | 2018-12-20T23:18:25.148596 | -               | False       |
+| ea5c8c39-e546-4457-9328-b5e16d16d1cf | nova-scheduler   | controller-0 | internal | enabled  | up    | 2018-12-20T23:18:29.190581 | -               | False       |
++--------------------------------------+------------------+--------------+----------+----------+-------+----------------------------+-----------------+-------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
