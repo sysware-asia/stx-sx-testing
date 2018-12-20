@@ -5,6 +5,12 @@ Storage: 1x SSD (400GB), 3x HDD 1TB (7200)
 RAIDCard (): NO
 NIC:  2 x 2 (i350), 2 x 10GE(82599ES)
 
+controller-0:~$ lscpu
+controller-0:~$ cat /proc/meminfo
+controller-0:~$ lspci |grep Eth*
+system host-disk-list controller-0
+system host-disk-partition-list controller-0
+nova service-list
 
 
 
@@ -172,6 +178,8 @@ controller-0:~$
 | cefa6b37-4370-4390-aeab-4c704a0a2879 | /dev/sdc    | 2080       | HDD         | 931.512  | 1.51          | 7200 | 9XG4JSEP           | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221102000000-lun-0 |
 | 22567d57-2ddc-4675-a44c-b7edfbd8ee6d | /dev/sdd    | 2096       | HDD         | 931.512  | 931.51        | 7200 | 9XG48N75           | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221103000000-lun-0 |
 +--------------------------------------+-------------+------------+-------------+----------+---------------+------+--------------------+-----------------------------------------------------------------+
+
+
 [wrsroot@controller-0 ~(keystone_admin)]$ nova service-list
 +--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
 | Id                                   | Binary           | Host         | Zone     | Status  | State | Updated_at                 | Disabled Reason | Forced down |
