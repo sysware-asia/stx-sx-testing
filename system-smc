@@ -1,5 +1,5 @@
 This StarlingX- SX is running properly 
-CPU=  2 x CPU (Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz)
+CPU=  2 x CPU (Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz) /8 Core
 RAM= 256GB
 Storage: 1x SSD (400GB), 3x HDD 1TB (7200)
 RAIDCard (): NO
