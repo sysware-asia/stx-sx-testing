@@ -95,6 +95,74 @@ controller-0:~$ lspci |grep Eth*
 07:00.1 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
 controller-0:~$
 
+
+<Starling X > System:
+[wrsroot@controller-0 ~(keystone_admin)]$ system show
++----------------------+--------------------------------------+
+| Property             | Value                                |
++----------------------+--------------------------------------+
+| contact              | None                                 |
+| created_at           | 2018-12-20T09:51:12.222551+00:00     |
+| description          | None                                 |
+| https_enabled        | False                                |
+| location             | None                                 |
+| name                 | b47c8b15-b2ab-4e04-8b53-99c76de69fe2 |
+| region_name          | RegionOne                            |
+| sdn_enabled          | False                                |
+| security_feature     | spectre_meltdown_v1                  |
+| service_project_name | services                             |
+| software_version     | 18.10                                |
+| system_mode          | simplex                              |
+| system_type          | All-in-one                           |
+| timezone             | UTC                                  |
+| updated_at           | 2018-12-20T09:51:58.243867+00:00     |
+| uuid                 | 7afdea97-c862-4a39-a7fd-c5dc031b4fd1 |
+| vswitch_type         | ovs-dpdk                             |
++----------------------+--------------------------------------+
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-show controller-0
++---------------------+-----------------------------------------------------------------+
+| Property            | Value                                                           |
++---------------------+-----------------------------------------------------------------+
+| action              | none                                                            |
+| administrative      | unlocked                                                        |
+| availability        | available                                                       |
+| bm_ip               | 192.168.1.90                                                    |
+| bm_type             | bmc                                                             |
+| bm_username         | ADMIN                                                           |
+| boot_device         | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221100000000-lun-0 |
+| capabilities        | {u'Personality': u'Controller-Active'}                          |
+| config_applied      | 79e2f419-d94a-4428-9cbf-66a08437828e                            |
+| config_status       | None                                                            |
+| config_target       | 79e2f419-d94a-4428-9cbf-66a08437828e                            |
+| console             | tty0                                                            |
+| created_at          | 2018-12-20T09:51:59.744451+00:00                                |
+| hostname            | controller-0                                                    |
+| id                  | 1                                                               |
+| install_output      | text                                                            |
+| install_state       | None                                                            |
+| install_state_info  | None                                                            |
+| invprovision        | provisioned                                                     |
+| location            | {u'locn': u''}                                                  |
+| mgmt_ip             | 192.168.204.3                                                   |
+| mgmt_mac            | 00:00:00:00:00:00                                               |
+| operational         | enabled                                                         |
+| personality         | controller                                                      |
+| reserved            | False                                                           |
+| rootfs_device       | /dev/disk/by-path/pci-0000:03:00.0-sas-0x4433221100000000-lun-0 |
+| serialid            | None                                                            |
+| software_load       | 18.10                                                           |
+| subfunction_avail   | available                                                       |
+| subfunction_oper    | enabled                                                         |
+| subfunctions        | controller,compute                                              |
+| task                |                                                                 |
+| tboot               | false                                                           |
+| ttys_dcd            | False                                                           |
+| updated_at          | 2018-12-20T15:16:56.413607+00:00                                |
+| uptime              | 4700                                                            |
+| uuid                | 73d1a9fb-1419-4a6e-987b-509f08fab0fa                            |
+| vim_progress_status | services-enabled                                                |
++---------------------+-----------------------------------------------------------------+
+
 [wrsroot@controller-0 ~(keystone_admin)]$ system host-disk-list controller-0
 +--------------------------------------+-------------+------------+-------------+----------+---------------+------+--------------------+-----------------------------------------------------------------+
 | uuid                                 | device_node | device_num | device_type | size_gib | available_gib | rpm  | serial_id          | device_path                                                     |
