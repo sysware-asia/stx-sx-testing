@@ -1,14 +1,16 @@
+This StarlingX- SX is running properly 
 CPU=  2 x CPU (Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz)
 RAM= 256GB
-Storage: 1x SSD (400GB), 3x HDD 1TB
+Storage: 1x SSD (400GB), 3x HDD 1TB (7200)
 RAIDCard (): NO
+NIC:  2 x 2 (i350), 2 x 10GE(82599ES)
 
 
 
 
 
 
-
+<CPU>
 controller-0:~$ lscpu
 Architecture:          x86_64
 CPU op-mode(s):        32-bit, 64-bit
@@ -36,4 +38,59 @@ L3 cache:              20480K
 NUMA node0 CPU(s):     0-7,16-23
 NUMA node1 CPU(s):     8-15,24-31
 Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts
+
+<RAM>
+controller-0:~$ cat /proc/meminfo
+MemTotal:       264003308 kB
+MemFree:        33425528 kB
+MemAvailable:   33509596 kB
+Buffers:          133636 kB
+Cached:           847196 kB
+SwapCached:            0 kB
+Active:          6883640 kB
+Inactive:         528612 kB
+Active(anon):    6473144 kB
+Inactive(anon):    41136 kB
+Active(file):     410496 kB
+Inactive(file):   487476 kB
+Unevictable:      123316 kB
+Mlocked:          123316 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               124 kB
+Writeback:             0 kB
+AnonPages:       6554196 kB
+Mapped:           121744 kB
+Shmem:             65264 kB
+Slab:             255272 kB
+SReclaimable:     140456 kB
+SUnreclaim:       114816 kB
+KernelStack:       17728 kB
+PageTables:        91428 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    21495668 kB
+Committed_AS:   16171276 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      690064 kB
+VmallocChunk:   34222647292 kB
+HardwareCorrupted:     0 kB
+CmaTotal:          16384 kB
+CmaFree:            6164 kB
+HugePages_Total:   106892
+HugePages_Free:    106892
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       14364 kB
+DirectMap2M:     3094528 kB
+DirectMap1G:    267386880 kB
+controller-0:~$
+<NICS>
+controller-0:~$ lspci |grep Eth*
+04:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)
+04:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)
+07:00.0 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
+07:00.1 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
 controller-0:~$
