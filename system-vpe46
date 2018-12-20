@@ -1,5 +1,154 @@
 VPE 4600
-1 CPU= Intel
-4x1GE Intelxxx
-2x10GE Intelxxx
-1xSSD9(1.2TB) 
+CPU=  1 x CPU (Intel(R) Xeon(R) D-2187NT CPU @ 2.00GHzz) / 16 Core
+RAM= 64 GB
+Storage: 1x SSD (1.2TB)
+RAIDCard (): NO
+NIC:  4 x 2 (i350), 2 x 10GE(X7222)
+
+controller-0:~$ lscpu
+controller-0:~$ cat /proc/meminfo
+controller-0:~$ lspci |grep Eth*
+system host-disk-list controller-0
+nova service-list
+
+controller-0:~$ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                32
+On-line CPU(s) list:   0-31
+Thread(s) per core:    2
+Core(s) per socket:    16
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 85
+Model name:            Intel(R) Xeon(R) D-2187NT CPU @ 2.00GHz
+Stepping:              4
+CPU MHz:               2000.000
+BogoMIPS:              4000.00
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              1024K
+L3 cache:              22528K
+NUMA node0 CPU(s):     0-31
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb cat_l3 cdp_l3 invpcid_single intel_pt spec_ctrl ibpb_support tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm arat pln pts
+controller-0:~$
+controller-0:~$ cat /proc/meminfo
+MemTotal:       65514004 kB
+MemFree:         6854012 kB
+MemAvailable:    6548732 kB
+Buffers:           42172 kB
+Cached:           287708 kB
+SwapCached:            0 kB
+Active:          7704852 kB
+Inactive:         181800 kB
+Active(anon):    7595308 kB
+Inactive(anon):    43312 kB
+Active(file):     109544 kB
+Inactive(file):   138488 kB
+Unevictable:       24852 kB
+Mlocked:           24852 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                52 kB
+Writeback:             0 kB
+AnonPages:       7585432 kB
+Mapped:           112516 kB
+Shmem:             69224 kB
+Slab:             186552 kB
+SReclaimable:      65928 kB
+SUnreclaim:       120624 kB
+KernelStack:       20176 kB
+PageTables:       108584 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     7673096 kB
+Committed_AS:   18616120 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      434908 kB
+VmallocChunk:   34358921212 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:   23984
+HugePages_Free:    22960
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:        5652 kB
+DirectMap2M:     1740800 kB
+DirectMap1G:    67108864 kB
+controller-0:~$
+controller-0:~$ lspci |grep Eth*
+02:00.0 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
+02:00.1 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
+02:00.2 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
+02:00.3 Ethernet controller: Intel Corporation I350 Gigabit Network Connection (rev 01)
+05:00.0 Ethernet controller: Intel Corporation I210 Gigabit Network Connection (rev 03)
+b8:00.0 Ethernet controller: Intel Corporation Ethernet Connection X722 for 10GbE SFP+ (rev 04)
+b8:00.1 Ethernet controller: Intel Corporation Ethernet Connection X722 for 10GbE SFP+ (rev 04)
+b8:00.2 Ethernet controller: Intel Corporation Ethernet Connection X722 for 10GbE backplane (rev 04)
+b8:00.3 Ethernet controller: Intel Corporation Ethernet Connection X722 for 10GbE backplane (rev 04)
+controller-0:~$
+
++--------------------------------------+-----------+---------+---------+---------+------------+-----+---------+--------------------------------------------+
+| uuid                                 | device_no | device_ | device_ | size_mi | available_ | rpm | serial_ | device_path                                |
+|                                      | de        | num     | type    | b       | mib        |     | id      |                                            |
++--------------------------------------+-----------+---------+---------+---------+------------+-----+---------+--------------------------------------------+
+| 0f9ef222-2cf1-44d7-b322-608ee9cff13f | /dev/sda  | 2048    | SSD     | 915715  | 9489       | N/A | PHDW724 | /dev/disk/by-path/pci-0000:00:11.5-ata-4.0 |
+|                                      |           |         |         |         |            |     | 500AU96 |                                            |
+|                                      |           |         |         |         |            |     | 0C      |                                            |
+|                                      |           |         |         |         |            |     |         |                                            |
++--------------------------------------+-----------+---------+---------+---------+------------+-----+---------+--------------------------------------------+
+
+
+
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-disk-partition-list controller-0
++--------------------------------------+-----------------------------+------------+--------------------------------------+---------------------+----------+--------+
+| uuid                                 | device_path                 | device_nod | type_guid                            | type_name           | size_mib | status |
+|                                      |                             | e          |                                      |                     |          |        |
++--------------------------------------+-----------------------------+------------+--------------------------------------+---------------------+----------+--------+
+| 2f306186-7064-4a9e-ba89-58fe4da30532 | /dev/disk/by-path/pci-0000: | /dev/sda5  | ba5eba11-0000-1111-2222-000000000001 | LVM Physical Volume | 200000   | In-Use |
+|                                      | 00:11.5-ata-4.0-part5       |            |                                      |                     |          |        |
+|                                      |                             |            |                                      |                     |          |        |
+| b84ca0ae-3e6f-471b-9c04-077a33653d91 | /dev/disk/by-path/pci-0000: | /dev/sda6  | ba5eba11-0000-1111-2222-000000000001 | LVM Physical Volume | 540000   | In-Use |
+|                                      | 00:11.5-ata-4.0-part6       |            |                                      |                     |          |        |
+|                                      |                             |            |                                      |                     |          |        |
++--------------------------------------+-----------------------------+------------+--------------------------------------+---------------------+----------+--------+
+
+
+[wrsroot@controller-0 ~(keystone_admin)]$ nova service-list
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+| Id                                   | Binary           | Host         | Zone     | Status  | State | Updated_at                 | Disabled Reason | Forced down |
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+| 8939690e-22ca-4984-a7d9-a3fde44a176e | nova-consoleauth | controller-0 | internal | enabled | up    | 2018-12-20T23:50:06.822279 | -               | False       |
+| 908daf0c-9096-4e61-82f9-bb7d5a2b92bc | nova-scheduler   | controller-0 | internal | enabled | up    | 2018-12-20T23:50:06.852428 | -               | False       |
+| 27417155-016d-4cf6-841b-af17809f913b | nova-compute     | controller-0 | nova     | enabled | up    | 2018-12-20T23:50:15.706414 | -               | False       |
+| b4118c00-2150-466c-9be0-8c85f8228b5c | nova-conductor   | controller-0 | internal | enabled | up    | 2018-12-20T23:50:16.372042 | -               | False       |
++--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
+[wrsroot@controller-0 ~(keystone_admin)]$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
