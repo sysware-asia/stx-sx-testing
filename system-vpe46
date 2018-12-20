@@ -125,30 +125,10 @@ controller-0:~$
 +--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
 | 8939690e-22ca-4984-a7d9-a3fde44a176e | nova-consoleauth | controller-0 | internal | enabled | up    | 2018-12-20T23:50:06.822279 | -               | False       |
 | 908daf0c-9096-4e61-82f9-bb7d5a2b92bc | nova-scheduler   | controller-0 | internal | enabled | up    | 2018-12-20T23:50:06.852428 | -               | False       |
-| 27417155-016d-4cf6-841b-af17809f913b | nova-compute     | controller-0 | nova     | enabled | up    | 2018-12-20T23:50:15.706414 | -               | False       |
+| 27417155-016d-4cf6-841b-af17809f913b | nova-compute     | controller-0 | nova     |disabled | down  | 2018-12-20T23:50:15.706414 | -               | False       |
 | b4118c00-2150-466c-9be0-8c85f8228b5c | nova-conductor   | controller-0 | internal | enabled | up    | 2018-12-20T23:50:16.372042 | -               | False       |
 +--------------------------------------+------------------+--------------+----------+---------+-------+----------------------------+-----------------+-------------+
 [wrsroot@controller-0 ~(keystone_admin)]$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
