@@ -1,8 +1,8 @@
 This StarlingX- SX is FAILED COMPUTE
 CPU=  2 x CPU Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz /16 Core
 RAM= 64 GB
-Storage: 1x SSD (400GB), 3x HDD 1TB (7200)
-RAIDCard (): NO
+Storage:2 x HDD 600 GB (10K)
+RAIDCard (): YES, RAID1
 NIC:  4 x1GE (BCM5719), 2 x 10GE(BCM57810) --not supported DPDK
 
 
@@ -166,6 +166,21 @@ controller-0:~$ lspci |grep Eth*
 | c1c4babd-f595-47fe-8704-cea80b227c4b | /dev/sdb    | 2064       | HDD         | 558.879  | 8.877         | Undetermined | PEYHC0CRHB239G | /dev/disk/by-path/pci-0000:5c:00.0-scsi-0:1:0:1 |
 +--------------------------------------+-------------+------------+-------------+----------+---------------+--------------+----------------+-------------------------------------------------+
 [wrsroot@controller-0 ~(keystone_admin)]$
+[wrsroot@controller-0 ~(keystone_admin)]$ system host-disk-partition-list controller-0
++--------------------------------------+-----------------------------+------------+--------------------------------------+-----------+----------+--------+
+| uuid                                 | device_path                 | device_nod | type_guid                            | type_name | size_gib | status |
+|                                      |                             | e          |                                      |           |          |        |
++--------------------------------------+-----------------------------+------------+--------------------------------------+-----------+----------+--------+
+| 2293f649-913d-47ad-b1af-102ca2efaf90 | /dev/disk/by-path/pci-0000: | /dev/sda5  | ba5eba11-0000-1111-2222-000000000001 | LVM       | 360.0    | In-Use |
+|                                      | 5c:00.0-scsi-0:1:0:0-part5  |            |                                      | Physical  |          |        |
+|                                      |                             |            |                                      | Volume    |          |        |
+|                                      |                             |            |                                      |           |          |        |
+| f6603805-5875-4bf1-8a20-458283713439 | /dev/disk/by-path/pci-0000: | /dev/sdb1  | ba5eba11-0000-1111-2222-000000000001 | LVM       | 550.0    | In-Use |
+|                                      | 5c:00.0-scsi-0:1:0:1-part1  |            |                                      | Physical  |          |        |
+|                                      |                             |            |                                      | Volume    |          |        |
+|                                      |                             |            |                                      |           |          |        |
++--------------------------------------+-----------------------------+------------+--------------------------------------+-----------+----------+--------+
+
 [wrsroot@controller-0 ~(keystone_admin)]$  nova service-list
 +--------------------------------------+------------------+--------------+----------+----------+-------+----------------------------+-----------------+-------------+
 | Id                                   | Binary           | Host         | Zone     | Status   | State | Updated_at                 | Disabled Reason | Forced down |
